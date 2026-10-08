@@ -5,11 +5,16 @@ I used a static binary tree to sort the key matrix, where each branch is indexed
 
 ## Inference stage
 After the input is split into queries and keys, the static binary tree is built on top of the key matrix and stored. This happens once per layer.
+
 Here is where our trainable function comes in, the budget predictor. The budget predictor is a trainable function that essentially takes in the current query vector, and a global sum of all the vectors, to essentially output the number of keys that the query is asking for(it outputs a leaf group for the query that represents the number of keys that the query is asking for).
+
 After we have this information, the first thing we do is search the query against its own key vector and its neighbors(a similar system to Treeformer).
 For this it uses the data of the previous queries that matched with their own neighbours.
+
 After neighbor search is done, and the queries leaf group is still not satisfied(meaning it still has more keys to search), the query descended through the tree, by comparing it with the branches and going down the more similar branch. The number of branches it goes down is decided by how many keys are left to be found by the query(subtracting found neighbour keys with the leaf group).
+
 After each query finds its respective keys, standard self-attention dot product and sum is run.
+
 After factoring in tree descent, the operations complexity of inference is about O(NlogN)
 
 ## Training stage
