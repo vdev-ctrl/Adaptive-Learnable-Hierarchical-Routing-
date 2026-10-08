@@ -38,6 +38,9 @@ This was a solo project(Im just a 18y/o college student lol). Just me and my iPh
 Pls donate to support further development and even more ideas that I have.
 Patreon will include the development progress logs and some of the ideas that I had put on hold.
 
+## Contact me
+E-mail: dexend8123@gmail.com
+
 ## Citations
 
 
