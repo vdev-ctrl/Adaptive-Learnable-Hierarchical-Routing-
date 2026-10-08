@@ -27,13 +27,17 @@ Causality is maintained by choosing the branches/branch of the tree that only co
 ## Results and Variables
 The following is also present in the repo under logs.
 [To be pasted here]
-## Contributors
-This was a solo project. Just me and my iPhone 16e and Kaggle notebooks. I used Claude sonnet 5.5 to generate the code.
 
 ## Paper
 I'm currently in the process of writing a paper and uploading it to Zenodo, but its been difficult given my lack of resources and balancing my college life.
 
+## Contributors
+This was a solo project(Im just a 18y/o college student lol). Just me and my iPhone 16e and Kaggle notebooks. I used Claude sonnet 5.5 to generate the code.
+
 ## Donation and sponsors
 Pls donate to support further development and even more ideas that I have.
 Patreon will include the development progress logs and some of the ideas that I had put on hold.
+
+## Citations
+
 
