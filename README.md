@@ -15,7 +15,9 @@ After factoring in tree descent, the operations complexity of inference is about
 ## Training stage
 This is the most important part of the mechanism and also the most expensive. It is split into 3 phases.
 **Phase 1**: Here, the tree module does not factor in at all, instead a dense model and a FFN are trained against the data. This is the step that makes training quadratic. This dense model acts as a teacher.
+
 **Phase 2**:The attention matrix from the trained dense model is extracted and the top-k keys for every query is labelled. Using this data and no external data we train out tree attention module. Here is where the dense model teaches the tree. Training doesn't happen to completion here as dense and sparse matrixes fundamentally differ, and we don't want exact training either.
+
 **Phase 3**:The tree is trained with the FFN. Not a new FFN, the same one attached to the dense model in phase 1. Since we are training without the dense teacher here, and directly training against data, the tree can actually learn to surpass its teacher(in the MQAR tests below it actually displays this).
 
 In phase 2 and 3, the functions trained in the tree module are the query/key splitter and the budget predictor.
