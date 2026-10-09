@@ -60,6 +60,11 @@ These are the proprietary results.
 
 You can verify the data set and kaggle prompt I used to get this in the logs folder.
 
+**Variables**: The variable factors that affect the training runs are: The target value for phase 1, Training steps for phase 1,2,3, The top-K token value(right now k=16 gives the best results), and the caps for the budget predictor.
+
+I haven't had the time nor the resources to test all the combinations, but they certainly improve accuracy.
+
+**Note**: If you check the logs, you will see that our tree attention system takes almost 10x the time that dense takes, this is because its not optimised yet for kernel and is run purely on pytorch.
 ## Paper
 I'm currently in the process of writing a paper and uploading it to Zenodo, but its been difficult given my lack of resources and balancing my college life.
 
