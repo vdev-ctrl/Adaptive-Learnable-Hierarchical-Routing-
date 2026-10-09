@@ -31,8 +31,11 @@ Causality is maintained by choosing the branches/branch of the tree that only co
 
 ## Results and Variables
 The following is also present in the repo under logs.
+
 Ideally, I would have run MQAR and Tinystories tests at 1,4,16k Tokens to solidify, but as things are right now, I only have the results for MQAR testing at 1K Tokens. 
+
 The exact log and the reproducible Kaggle script is in the logs folder
+
 **HERE ARE THE RESULTS**: 
 
 ## 1024 Tokens Standard MQAR testing
@@ -52,6 +55,7 @@ One thing you will notice is the VRAM used is significantly higher, however as n
 Also we can verify sub-quadratic inference from here, as approximately Nlog N, as seen in the logs.
 
 Again, I wanted to do this multi seed run for up to 16k tokens, but I do not have the resources. (iPhone 16e and kaggle 😭)
+
 These are the proprietary results.
 
 You can verify the data set and kaggle prompt I used to get this in the logs folder.
