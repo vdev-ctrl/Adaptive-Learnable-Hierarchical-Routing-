@@ -41,7 +41,11 @@ This was a solo project(Im just a 18y/o college student lol). Just me and my iPh
 
 ## Donation and sponsors
 Pls donate to support further development and even more ideas that I have.
-Patreon will include the development progress logs and some of the ideas that I had put on hold.
+(Im tired of doing this on a small phone 😭)
+
+UPI: vdhiroshnin@okhdfcbank
+
+Donors get access to the development logs and process along with some ideas I had to put on the side.
 
 ## Contact me
 E-mail: dexend8123@gmail.com
