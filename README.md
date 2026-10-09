@@ -1,4 +1,4 @@
-# ALHR (Adaptive learnable Hierarchical routing): sub-quadratic tree attention without accuracy loss, trained in three phases against a dense reference (beta)
+# ALHR (Adaptive learnable Hierarchical routing): sub-quadratic tree attention without meaningful accuracy loss, trained in three phases against a dense reference (beta)
 
 An attention mechanism using static binary trees and learnable functions to achieve sub-quadratic inference without meaningful accuracy loss. 
 I used a static binary tree to sort the key matrix, where each branch is indexed by the sum of all the key vectors beneath it.
