@@ -59,6 +59,8 @@ Pls donate to support further development and even more ideas that I have.
 
 UPI: vdhiroshnin@okhdfcbank
 
+Buy me a coffee: https://buymeacoffee.com/vdhiroshnif
+
 Donors get access to the development logs and process along with some ideas I had to put on the side.
 
 ## Contact me
