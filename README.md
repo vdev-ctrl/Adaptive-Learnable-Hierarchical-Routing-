@@ -47,12 +47,13 @@ Now as you can see, we achieve near dense accuracy while reading a small amount 
 
 In fact, in some of my earlier testing, our tree beat its own teacher. However I do not have the resources right now to reproduce that on this scale, It is theoretically possible.
 
-*
 One thing you will notice is the VRAM used is significantly higher, however as number of tokens increase, peak VRAM increases dramatically for dense while ours scales linearly.
 
 Also we can verify sub-quadratic inference from here, as approximately Nlog N, as seen in the logs.
-Again, I wanted to do this multi seed run for up to 16k tokens, but I do not have the resources.
+
+Again, I wanted to do this multi seed run for up to 16k tokens, but I do not have the resources. (iPhone 16e and kaggle 😭)
 These are the proprietary results.
+
 You can verify the data set and kaggle prompt I used to get this in the logs folder.
 
 ## Paper
