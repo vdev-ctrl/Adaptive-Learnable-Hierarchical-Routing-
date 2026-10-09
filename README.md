@@ -36,13 +36,16 @@ The exact log and the reproducible Kaggle script is in the logs folder
 **HERE ARE THE RESULTS**: 
 
 ## 1024 Tokens Standard MQAR testing
+
 | Model Variant (T=1024) | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
-|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Dense Baseline | 94.9% ± 1.5% | 512.5(Full) | 1.0 x (100% Read) | 57MB | N/A |
 | ALHR(Tree attention) | 92.1% ± 0.6% | 30.0 | 35.3 x (2.83% Read) | 422MB | 100.0% |
 
+
 Now as you can see, we achieve near dense accuracy while reading a small amount of keys. In fact, in some of my earlier testing, our tree beat its own teacher. However I do not have the resources right now to reproduce that on this scale, It is theoretically possible.
 One thing you will notice is the VRAM used is significantly higher, however as number of tokens increase, peak VRAM increases dramatically for dense while ours scales linearly.
+Also we can verify sub-quadratic inference from here, as approximately Nlog N, as seen in the logs.
 Again, I wanted to do this multi seed run for up to 16k tokens, but I do not have the resources.
 These are the proprietary results.
 You can verify the data set and kaggle prompt I used to get this in the logs folder.
