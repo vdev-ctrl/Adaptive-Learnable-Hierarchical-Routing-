@@ -1,0 +1,110 @@
+import glob, json, os, re, shutil, subprocess, sys, time, zipfile
+import numpy as np
+import torch
+assert torch.cuda.is_available(), 'turn on a GPU: Settings -> Accelerator'
+
+# ---------------- config ----------------
+T = 16384
+STAGES = '256:16:3000,1024:16:1500,4096:16:2500,16384:16:1500'   # T:n_kv:steps curriculum, last stage = test length
+EVAL_N = 32                                                       # fresh sequences per accuracy measurement
+SEEDS = [0, 1, 2]
+P1_STEPS = 10000                              # phase 1 step budget
+P1_PLATEAU_AFTER = 9000                       # plateau rule only counts from this step on
+# ----------------------------------------
+REPO = '/kaggle/working/repo'
+if not os.path.exists(REPO + '/treeattn/__init__.py'):
+    hits = [h for h in glob.glob('/kaggle/input/**/treeattn/__init__.py', recursive=True) if '/past/' not in h]
+    if hits:
+        shutil.copytree(os.path.dirname(os.path.dirname(hits[0])), REPO)
+    else:
+        zips = glob.glob('/kaggle/input/**/alhr.zip', recursive=True) + glob.glob('/kaggle/working/alhr.zip')
+        assert zips, 'upload alhr.zip as a Kaggle dataset'
+        zipfile.ZipFile(zips[0]).extractall('/kaggle/working')
+
+MQ = ['--task', 'mqar', '--stages', STAGES, '--eval_grid', f'{T}:16', '--eval_n', str(EVAL_N)]
+TREE = ['--wmax', '32', '--max_keys', '96', '--beam_classes', '2,4,8,16,32', '--gate_k', '16']
+# TREE += ['--q_chunk', '256']   # uncomment if you hit CUDA out of memory
+
+def banner(s):
+    print('\n' + '#' * 78 + '\n# ' + s + '\n' + '#' * 78, flush=True)
+
+def run(title, cmd, log, marker):
+    print(f'\n>>> {title}', flush=True)
+    p = subprocess.Popen([sys.executable, '-u'] + cmd, cwd=REPO, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+    buf = []
+    for line in p.stdout:
+        buf.append(line)
+        m = re.match(r'step (\d+) ', line)
+        if (m and (int(m.group(1)) % 500 == 0 or m.group(1) == '1')) or re.match(r'\s*(VAL|SIM|START|GATE)\b|PHASE \d|resumed|WARNING|Traceback', line):
+            print('   ' + line.rstrip(), flush=True)
+    p.wait()
+    text = ''.join(buf)
+    open(f'{REPO}/{log}', 'w').write(text)
+    if p.returncode != 0:
+        print(text[-3000:])
+        raise SystemExit(f'{title} failed (exit {p.returncode}), log: {log}')
+    i = text.find(marker)
+    return text[i:] if i >= 0 else text[-3000:]
+
+t0 = time.time()
+results = {}
+for s in SEEDS:
+    OUT = f'runs/mqar_{T}/seed{s}'
+    D, DIS, TR = f'{OUT}/dense', f'{OUT}/distill', f'{OUT}/tree'
+    os.makedirs(f'{REPO}/{OUT}', exist_ok=True)
+    s1, s2, s3 = str(3 * s), str(3 * s + 1), str(3 * s + 2)
+    if os.path.exists(f'{REPO}/{TR}/benchmark.json') and os.path.exists(f'{REPO}/{D}/benchmark.json'):
+        print(f'\nseed {s}: finished earlier, reusing {OUT} (delete the folder to redo it)', flush=True)
+    else:
+        banner(f'TRAINING | MQAR T={T} | seed {s} | phase 1 target 0.95 | gate_k 16 | wmax 32, max_keys 96')
+        r1 = run('phase 1 (dense)', ['scripts/phase1_dense.py'] + MQ + ['--out', D, '--target_acc', '0.95', '--steps', str(P1_STEPS), '--plateau_after', str(P1_PLATEAU_AFTER), '--seed', s1], f'{D}/log.txt', '=== PHASE 1 finished')
+        print(f'\n----- SEED {s} | PHASE 1 RESULT -----\n' + r1)
+        r2 = run('phase 2 (distill the tree)', ['scripts/phase2_distill.py'] + MQ + TREE + ['--dense_ckpt', f'{D}/ckpt.pt', '--out', DIS, '--seed', s2], f'{DIS}/log.txt', '=== PHASE 2 finished')
+        print(f'\n----- SEED {s} | PHASE 2 RESULT -----\n' + r2)
+        r3 = run('phase 3 (tree + FFN)', ['scripts/phase3_finetune.py'] + MQ + ['--ckpt', f'{DIS}/ckpt.pt', '--out', TR, '--dense_ckpt', f'{D}/ckpt.pt', '--seed', s3], f'{TR}/log.txt', '=== FINAL (phase 3')
+        print(f'\n----- SEED {s} | PHASE 3 RESULT -----\n' + r3)
+        banner(f'INFERENCE | MQAR T={T} | seed {s} | fresh held-out sequences | tree attention (the inference model)')
+        print(run('benchmark: tree', ['scripts/benchmark.py'] + MQ + ['--ckpt', f'{TR}/ckpt.pt', '--n_decode', '64'], f'{TR}/benchmark_log.txt', '=' * 78))
+        banner(f'BASELINE | MQAR T={T} | seed {s} | dense phase-1 model, same fresh sequences')
+        print(run('benchmark: dense', ['scripts/benchmark.py'] + MQ + ['--ckpt', f'{D}/ckpt.pt'], f'{D}/benchmark_log.txt', '=' * 78))
+    results[s] = {'tree': json.load(open(f'{REPO}/{TR}/benchmark.json')), 'dense': json.load(open(f'{REPO}/{D}/benchmark.json'))}
+
+# ---------------- summary over seeds ----------------
+def acc_of(res):
+    return float(re.search(r'acc ([0-9.]+)', ' '.join(res.get('accuracy_lines', []))).group(1))
+
+def col(f):
+    out = []
+    for s in SEEDS:
+        try:
+            out.append(f(results[s]))
+        except Exception:
+            out.append(None)
+    return out
+
+def show(name, vals, spec):
+    v = [x for x in vals if x is not None]
+    if not v:
+        print(f'  {name:<30} n/a')
+        return
+    sd = float(np.std(v, ddof=1)) if len(v) > 1 else 0.0
+    print(f'  {name:<30} ' + (spec % np.mean(v)) + ' +- ' + (spec % sd) + '   [' + ', '.join('n/a' if x is None else spec % x for x in vals) + ']')
+
+ctx = lambda r, k: r[k]['contexts'][str(T)]
+banner(f'SUMMARY | MQAR T={T} | {len(SEEDS)} seeds | mean +- std [per seed] | same fresh eval sequences for every seed')
+print('TREE attention (inference model)')
+show('[1] top-1 accuracy', col(lambda r: acc_of(r['tree'])), '%.3f')
+show('[3] prefill latency (ms)', col(lambda r: ctx(r, 'tree')['prefill']['ms']), '%.1f')
+show('[4] decode speed (tokens/s)', col(lambda r: ctx(r, 'tree')['decode']['tok_s']), '%.1f')
+show('[5] keys read/token (decode)', col(lambda r: ctx(r, 'tree')['decode']['keys']), '%.1f')
+show('[6] KV retrieval % (decode)', col(lambda r: ctx(r, 'tree')['decode']['retrieval_pct']), '%.2f')
+show('[6] compression x (decode)', col(lambda r: ctx(r, 'tree')['decode']['compression']), '%.1f')
+show('[7] cache top-1 agreement %', col(lambda r: r['tree']['decode_sanity']['top1_agree_pct']), '%.1f')
+show('[8] peak VRAM (MB)', col(lambda r: ctx(r, 'tree')['prefill']['peak_mb']), '%.0f')
+show('[9] KV-cache footprint (MB)', col(lambda r: ctx(r, 'tree')['prefill']['cache']['total_mb']), '%.1f')
+print('DENSE baseline (phase-1 model)')
+show('[1] top-1 accuracy', col(lambda r: acc_of(r['dense'])), '%.3f')
+show('[3] prefill latency (ms)', col(lambda r: ctx(r, 'dense')['prefill']['ms']), '%.1f')
+show('[8] peak VRAM (MB)', col(lambda r: ctx(r, 'dense')['prefill']['peak_mb']), '%.0f')
+show('[9] KV-cache footprint (MB)', col(lambda r: ctx(r, 'dense')['prefill']['cache']['total_mb']), '%.1f')
+print(f'\ntotal time {(time.time() - t0) / 60:.1f} min | per-seed reports: benchmark.txt / benchmark.json in runs/mqar_{T}/seed*/tree and /dense')

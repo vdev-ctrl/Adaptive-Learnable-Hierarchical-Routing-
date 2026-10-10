@@ -1,0 +1,568 @@
+Printed results at 16k
+18.4s	9	##############################################################################
+18.4s	10	# TRAINING | MQAR T=16384 | seed 0 | phase 1 target 0.95 | gate_k 16 | wmax 32, max_keys 96
+18.4s	11	##############################################################################
+18.4s	12	
+18.4s	13	>>> phase 1 (dense)
+20.5s	14	PHASE 1 dense | task mqar | device cuda | params 5.25M | seq_len 16384 | budget 10000 steps | target accuracy 0.95 | plateau: patience 5, delta 0.002, from step 9000
+27.7s	15	step 1 | lm 9.064 (ema 9.064) | lr 1.0e-05 | 1.51s/step
+51.5s	16	VAL step 250 | accuracy 0.029 (target 0.95) | T=16384 n_kv=16 | ACC 0.029
+71.7s	17	step 500 | lm 6.855 (ema 6.950) | lr 9.9e-04 | 0.09s/step
+75.5s	18	VAL step 500 | accuracy 0.039 (target 0.95) | T=16384 n_kv=16 | ACC 0.039
+99.8s	19	VAL step 750 | accuracy 0.035 (target 0.95) | T=16384 n_kv=16 | ACC 0.035
+120.2s	20	step 1000 | lm 6.731 (ema 6.745) | lr 9.8e-04 | 0.09s/step
+124.2s	21	VAL step 1000 | accuracy 0.041 (target 0.95) | T=16384 n_kv=16 | ACC 0.041
+148.8s	22	VAL step 1250 | accuracy 0.057 (target 0.95) | T=16384 n_kv=16 | ACC 0.057
+169.3s	23	step 1500 | lm 5.609 (ema 5.741) | lr 9.5e-04 | 0.10s/step
+173.4s	24	VAL step 1500 | accuracy 0.068 (target 0.95) | T=16384 n_kv=16 | ACC 0.068
+198.2s	25	VAL step 1750 | accuracy 0.080 (target 0.95) | T=16384 n_kv=16 | ACC 0.080
+218.8s	26	step 2000 | lm 5.158 (ema 5.094) | lr 9.1e-04 | 0.10s/step
+223.0s	27	VAL step 2000 | accuracy 0.107 (target 0.95) | T=16384 n_kv=16 | ACC 0.107
+248.0s	28	VAL step 2250 | accuracy 0.125 (target 0.95) | T=16384 n_kv=16 | ACC 0.125
+268.8s	29	step 2500 | lm 4.529 (ema 4.583) | lr 8.7e-04 | 0.10s/step
+273.0s	30	VAL step 2500 | accuracy 0.111 (target 0.95) | T=16384 n_kv=16 | ACC 0.111
+298.2s	31	VAL step 2750 | accuracy 0.125 (target 0.95) | T=16384 n_kv=16 | ACC 0.125
+319.8s	32	step 3000 | lm 4.010 (ema 4.164) | lr 8.1e-04 | 0.10s/step
+324.5s	33	VAL step 3000 | accuracy 0.148 (target 0.95) | T=16384 n_kv=16 | ACC 0.148
+352.2s	34	VAL step 3250 | accuracy 0.168 (target 0.95) | T=16384 n_kv=16 | ACC 0.168
+374.4s	35	step 3500 | lm 3.134 (ema 3.302) | lr 7.5e-04 | 0.10s/step
+378.8s	36	VAL step 3500 | accuracy 0.375 (target 0.95) | T=16384 n_kv=16 | ACC 0.375
+405.8s	37	VAL step 3750 | accuracy 0.543 (target 0.95) | T=16384 n_kv=16 | ACC 0.543
+428.6s	38	step 4000 | lm 1.630 (ema 1.664) | lr 6.9e-04 | 0.10s/step
+433.1s	39	VAL step 4000 | accuracy 0.555 (target 0.95) | T=16384 n_kv=16 | ACC 0.555
+460.2s	40	VAL step 4250 | accuracy 0.607 (target 0.95) | T=16384 n_kv=16 | ACC 0.607
+482.6s	41	step 4500 | lm 1.043 (ema 1.252) | lr 6.2e-04 | 0.10s/step
+487.1s	42	VAL step 4500 | accuracy 0.674 (target 0.95) | T=16384 n_kv=16 | ACC 0.674
+523.1s	43	VAL step 4750 | accuracy 0.639 (target 0.95) | T=16384 n_kv=16 | ACC 0.639
+554.6s	44	step 5000 | lm 1.256 (ema 1.790) | lr 5.5e-04 | 0.11s/step
+559.2s	45	VAL step 5000 | accuracy 0.633 (target 0.95) | T=16384 n_kv=16 | ACC 0.633
+595.3s	46	VAL step 5250 | accuracy 0.713 (target 0.95) | T=16384 n_kv=16 | ACC 0.713
+626.6s	47	step 5500 | lm 1.037 (ema 1.258) | lr 4.8e-04 | 0.11s/step
+631.1s	48	VAL step 5500 | accuracy 0.781 (target 0.95) | T=16384 n_kv=16 | ACC 0.781
+667.0s	49	VAL step 5750 | accuracy 0.869 (target 0.95) | T=16384 n_kv=16 | ACC 0.869
+698.2s	50	step 6000 | lm 1.162 (ema 1.056) | lr 4.1e-04 | 0.11s/step
+702.7s	51	VAL step 6000 | accuracy 0.820 (target 0.95) | T=16384 n_kv=16 | ACC 0.820
+737.7s	52	VAL step 6250 | accuracy 0.887 (target 0.95) | T=16384 n_kv=16 | ACC 0.887
+768.3s	53	step 6500 | lm 1.404 (ema 1.085) | lr 3.5e-04 | 0.11s/step
+772.8s	54	VAL step 6500 | accuracy 0.902 (target 0.95) | T=16384 n_kv=16 | ACC 0.902
+807.6s	55	VAL step 6750 | accuracy 0.932 (target 0.95) | T=16384 n_kv=16 | ACC 0.932
+838.5s	56	step 7000 | lm 0.968 (ema 0.798) | lr 2.9e-04 | 0.12s/step
+842.9s	57	VAL step 7000 | accuracy 0.906 (target 0.95) | T=16384 n_kv=16 | ACC 0.906
+915.8s	58	VAL step 7250 | accuracy 0.865 (target 0.95) | T=16384 n_kv=16 | ACC 0.865
+984.3s	59	step 7500 | lm 1.773 (ema 2.208) | lr 2.3e-04 | 0.13s/step
+988.6s	60	VAL step 7500 | accuracy 0.803 (target 0.95) | T=16384 n_kv=16 | ACC 0.803
+1061.2s	61	VAL step 7750 | accuracy 0.787 (target 0.95) | T=16384 n_kv=16 | ACC 0.787
+1129.5s	62	step 8000 | lm 3.480 (ema 2.871) | lr 1.9e-04 | 0.14s/step
+1133.8s	63	VAL step 8000 | accuracy 0.773 (target 0.95) | T=16384 n_kv=16 | ACC 0.773
+1206.3s	64	VAL step 8250 | accuracy 0.754 (target 0.95) | T=16384 n_kv=16 | ACC 0.754
+1274.5s	65	step 8500 | lm 3.510 (ema 2.978) | lr 1.5e-04 | 0.15s/step
+1278.9s	66	VAL step 8500 | accuracy 0.779 (target 0.95) | T=16384 n_kv=16 | ACC 0.779
+1351.4s	67	VAL step 8750 | accuracy 0.787 (target 0.95) | T=16384 n_kv=16 | ACC 0.787
+1419.6s	68	step 9000 | lm 2.039 (ema 2.653) | lr 1.2e-04 | 0.15s/step
+1423.9s	69	VAL step 9000 | accuracy 0.822 (target 0.95) | T=16384 n_kv=16 | ACC 0.822
+1496.5s	70	VAL step 9250 | accuracy 0.848 (target 0.95) | T=16384 n_kv=16 | ACC 0.848
+1564.6s	71	step 9500 | lm 3.041 (ema 2.407) | lr 1.1e-04 | 0.16s/step
+1568.9s	72	VAL step 9500 | accuracy 0.848 (target 0.95) | T=16384 n_kv=16 | ACC 0.848
+1641.4s	73	VAL step 9750 | accuracy 0.865 (target 0.95) | T=16384 n_kv=16 | ACC 0.865
+1709.5s	74	step 10000 | lm 2.316 (ema 2.156) | lr 1.0e-04 | 0.17s/step
+1713.9s	75	VAL step 10000 | accuracy 0.871 (target 0.95) | T=16384 n_kv=16 | ACC 0.871
+1716.1s	76	PHASE 1 METRICS | dense attention | task mqar | Tesla T4 | fp16 autocast
+1720.1s	77	
+1720.1s	78	----- SEED 0 | PHASE 1 RESULT -----
+1720.1s	79	=== PHASE 1 finished at step 10000: plateau: no gain above 0.002 for 5 evaluations (best 0.932) ===
+1720.1s	80	=== FINAL (phase 1, dense attention) ===
+1720.1s	81	[1] TOP-1 TOKEN ACCURACY
+1720.1s	82	(MQAR accuracy at the answer positions, on fresh held-out sequences never used in training or stopping; chance ~ 1/4096)
+1720.1s	83	T= 16384 n_kv= 16 | acc 0.895
+1720.1s	84	
+1720.1s	85	==============================================================================
+1720.1s	86	PHASE 1 METRICS | dense attention | task mqar | Tesla T4 | fp16 autocast
+1720.1s	87	layers 4, heads 4, d_model 256, params 5.25M
+1720.1s	88	==============================================================================
+1720.1s	89	[2] NEEDLE ACCURACY BY DEPTH: n/a for MQAR (no needle text; see [1])
+1720.1s	90	
+1720.1s	91	[3] prefill [4] decode speed [5] keys read [6] KV retrieval [8] peak VRAM [9] KV-cache footprint (batch 1, by context length)
+1720.1s	92	context 16384
+1720.1s	93	[3] prefill latency : 73.2 ms (4.5 us/token)
+1720.1s	94	[4] decode speed : n/a (dense head has no KV-cache decode path)
+1720.1s	95	[5] avg keys read/token : prefill 8192.5 (dense reads 8192 | n/a)
+1720.1s	96	[6] KV retrieval : prefill 100.00% (compression x1.0)
+1720.1s	97	[8] peak VRAM (forward) : 659 MB total | the forward adds 306 MB
+1720.1s	98	[9] KV-cache footprint : 128.0 MB (analytic dense KV cache: k + v of every layer, 8.0 KB/token)
+1720.1s	99	
+1720.1s	100	[7] KV-CACHE TOP-1 AGREEMENT: n/a (the dense head has no cache)
+1720.1s	101	
+1720.1s	102	SUMMARY (per context length)
+1720.1s	103	T prefill_ms tok/s keys read% peak_MB cache_MB
+1720.1s	104	16384 73.2 n/a 8192.5 100.00 659 128.0
+1720.1s	105	(dense: reads every key)
+1720.1s	106	==============================================================================
+1720.1s	107	
+1720.1s	108	
+1720.1s	109	>>> phase 2 (distill the tree)
+1722.3s	110	PHASE 2 distill | task mqar | device cuda | trainable 1.08M of 5.27M params (tree attention only) | warm start True | target similarity 0.90 (far) | wmax 32 classes 2,4,8,16,32 max_keys 96 rope_cap 16384
+1725.7s	111	SIM step 0 | similarity 0.299 (far) | all-mass 0.439 | top-16 hit 0.268 | per layer 0.05 0.63 0.35 0.17
+1726.4s	112	step 1 | split 5.531 pred 1.633 | train similarity 0.443 | keys 21.3 (16.6% of context) | lr 6.0e-06 | 0.66s/step
+1799.0s	113	SIM step 100 | similarity 0.480 (far) | all-mass 0.579 | top-16 hit 0.455 | per layer 0.25 0.69 0.49 0.49
+1872.2s	114	SIM step 200 | similarity 0.537 (far) | all-mass 0.632 | top-16 hit 0.476 | per layer 0.28 0.88 0.49 0.49
+1945.5s	115	SIM step 300 | similarity 0.539 (far) | all-mass 0.634 | top-16 hit 0.465 | per layer 0.28 0.89 0.49 0.49
+2018.9s	116	SIM step 400 | similarity 0.535 (far) | all-mass 0.630 | top-16 hit 0.463 | per layer 0.28 0.87 0.49 0.49
+2090.8s	117	step 500 | split 3.307 pred 0.141 | train similarity 0.361 | keys 31.7 (0.4% of context) | lr 3.0e-04 | 0.73s/step
+2092.2s	118	SIM step 500 | similarity 0.534 (far) | all-mass 0.629 | top-16 hit 0.464 | per layer 0.29 0.86 0.50 0.49
+2092.2s	119	PHASE 2 METRICS (best checkpoint: tree attention aligned to the dense model) | tree attention | task mqar | Tesla T4 | fp16 autocast
+2138.1s	120	
+2138.1s	121	----- SEED 0 | PHASE 2 RESULT -----
+2138.1s	122	=== PHASE 2 finished at step 500: plateau: no gain above 0.003 for 3 evaluations (best 0.539) ===
+2138.1s	123	similarity of the saved checkpoint: 0.539
+2138.1s	124	
+2138.1s	125	==============================================================================
+2138.1s	126	PHASE 2 METRICS (best checkpoint: tree attention aligned to the dense model) | tree attention | task mqar | Tesla T4 | fp16 autocast
+2138.1s	127	layers 4, heads 4, d_model 256, params 5.27M | wmax 32, budget classes 2,4,8,16,32, max_keys 96, static keys 3 + sink, neighbours on, rope_cap 16384
+2138.1s	128	==============================================================================
+2138.1s	129	[1] TOP-1 TOKEN ACCURACY (MQAR answer positions)
+2138.1s	130	T=16384 n_kv=16 | ACC 0.211
+2138.1s	131	
+2138.1s	132	[2] NEEDLE ACCURACY BY DEPTH: n/a for MQAR (no needle text; see [1])
+2138.1s	133	
+2138.1s	134	[3] prefill [4] decode speed [5] keys read [6] KV retrieval [8] peak VRAM [9] KV-cache footprint (batch 1, by context length)
+2138.1s	135	context 16384
+2138.1s	136	[3] prefill latency : 1202.8 ms (73.4 us/token)
+2138.1s	137	[4] decode speed : 22.0 tokens/s (45.38 ms/token, median 44.93) over 32 tokens after the prefill
+2138.1s	138	[5] avg keys read/token : prefill 31.7 | decode 30.4 (dense reads 8192 | 16402) cap max_keys=96
+2138.1s	139	[6] KV retrieval : prefill 0.39% (compression x258.3) | decode 0.19% (x540.3)
+2138.1s	140	[8] peak VRAM (forward) : 993 MB total | the forward adds 738 MB | decoding: 800 MB total, adds 6 MB
+2138.1s	141	[9] KV-cache footprint : 228.0 MB = KV 128.0 + tree index 100.0 (14.2 KB/token; a dense KV cache alone: 128.0 MB)
+2138.1s	142	
+2138.1s	143	[7] KV-CACHE TOP-1 AGREEMENT (cached one-token decoding vs the parallel forward pass, fp32, window 16384)
+2138.1s	144	last 64 tokens | top-1 token agreement 100.0% | max |logit difference| 8.77e-05
+2138.1s	145	
+2138.1s	146	SUMMARY (per context length)
+2138.1s	147	T prefill_ms tok/s keys read% peak_MB cache_MB
+2138.1s	148	16384 1202.8 22.0 30.4 0.19 993 228.0
+2138.1s	149	(keys / read% are the decode-step numbers; prefill numbers are in the blocks above)
+2138.1s	150	==============================================================================
+2138.1s	151	
+2138.1s	152	
+2138.1s	153	>>> phase 3 (tree + FFN)
+2140.3s	154	PHASE 3 tree + FFN | task mqar | device cuda | params 5.27M | all parameters at 1x lr 3.0e-04 | steps 8500 | rope_cap 16384 | dense monitor True | keep_ref False
+2178.5s	155	START step 0 | T=16384 n_kv=16 | ACC 0.211 | dense attention read: non-static 0.421, all 0.539
+2180.0s	156	step 1 | lm 6.293 (ema 6.293) | keys 27.7 (21.6% of context) | lr 3.0e-06 | 1.47s/step
+2888.6s	157	step 500 | lm 2.265 (ema 2.202) | keys 27.0 (21.0% of context) | lr 3.0e-04 | 1.42s/step
+2925.4s	158	VAL step 500 | T=16384 n_kv=16 | ACC 0.471 | dense attention read: non-static 0.268, all 0.401
+3632.0s	159	step 1000 | lm 1.472 (ema 1.480) | keys 26.9 (20.9% of context) | lr 2.9e-04 | 1.45s/step
+3668.7s	160	VAL step 1000 | T=16384 n_kv=16 | ACC 0.492 | dense attention read: non-static 0.242, all 0.378
+4373.0s	161	step 1500 | lm 1.407 (ema 1.447) | keys 27.2 (21.2% of context) | lr 2.8e-04 | 1.46s/step
+4409.8s	162	VAL step 1500 | T=16384 n_kv=16 | ACC 0.541 | dense attention read: non-static 0.232, all 0.370
+5113.2s	163	step 2000 | lm 1.271 (ema 1.365) | keys 27.4 (21.4% of context) | lr 2.6e-04 | 1.47s/step
+5150.0s	164	VAL step 2000 | T=16384 n_kv=16 | ACC 0.535 | dense attention read: non-static 0.234, all 0.373
+5856.4s	165	step 2500 | lm 1.310 (ema 1.128) | keys 27.5 (21.4% of context) | lr 2.5e-04 | 1.47s/step
+5894.0s	166	VAL step 2500 | T=16384 n_kv=16 | ACC 0.672 | dense attention read: non-static 0.217, all 0.356
+6599.5s	167	step 3000 | lm 1.000 (ema 0.978) | keys 27.6 (21.5% of context) | lr 2.3e-04 | 1.47s/step
+6636.3s	168	VAL step 3000 | T=16384 n_kv=16 | ACC 0.684 | dense attention read: non-static 0.215, all 0.354
+7397.8s	169	step 3500 | lm 1.266 (ema 1.296) | keys 29.4 (5.7% of context) | lr 2.0e-04 | 1.49s/step
+7434.7s	170	VAL step 3500 | T=16384 n_kv=16 | ACC 0.744 | dense attention read: non-static 0.212, all 0.351
+8195.7s	171	step 4000 | lm 1.369 (ema 1.233) | keys 29.4 (5.7% of context) | lr 1.8e-04 | 1.50s/step
+8232.5s	172	VAL step 4000 | T=16384 n_kv=16 | ACC 0.734 | dense attention read: non-static 0.210, all 0.348
+8993.3s	173	step 4500 | lm 0.976 (ema 1.076) | keys 29.3 (5.7% of context) | lr 1.5e-04 | 1.51s/step
+9030.1s	174	VAL step 4500 | T=16384 n_kv=16 | ACC 0.760 | dense attention read: non-static 0.206, all 0.346
+9862.5s	175	step 5000 | lm 1.049 (ema 1.468) | keys 30.0 (1.5% of context) | lr 1.3e-04 | 1.54s/step
+9899.4s	176	VAL step 5000 | T=16384 n_kv=16 | ACC 0.775 | dense attention read: non-static 0.205, all 0.344
+10731.8s	177	step 5500 | lm 1.226 (ema 1.464) | keys 30.2 (1.5% of context) | lr 1.0e-04 | 1.56s/step
+10768.6s	178	VAL step 5500 | T=16384 n_kv=16 | ACC 0.771 | dense attention read: non-static 0.211, all 0.349
+11614.8s	179	step 6000 | lm 1.757 (ema 1.321) | keys 30.0 (1.5% of context) | lr 8.4e-05 | 1.57s/step
+11652.4s	180	VAL step 6000 | T=16384 n_kv=16 | ACC 0.777 | dense attention read: non-static 0.205, all 0.345
+12504.9s	181	step 6500 | lm 1.166 (ema 1.277) | keys 30.0 (1.5% of context) | lr 6.5e-05 | 1.59s/step
+12542.4s	182	VAL step 6500 | T=16384 n_kv=16 | ACC 0.771 | dense attention read: non-static 0.206, all 0.345
+13395.6s	183	step 7000 | lm 1.193 (ema 1.186) | keys 30.2 (1.5% of context) | lr 5.0e-05 | 1.60s/step
+13433.5s	184	VAL step 7000 | T=16384 n_kv=16 | ACC 0.781 | dense attention read: non-static 0.207, all 0.346
+14379.5s	185	step 7500 | lm 1.560 (ema 1.633) | keys 30.8 (0.4% of context) | lr 3.9e-05 | 1.63s/step
+14417.3s	186	VAL step 7500 | T=16384 n_kv=16 | ACC 0.775 | dense attention read: non-static 0.210, all 0.349
+15361.7s	187	step 8000 | lm 1.451 (ema 1.617) | keys 30.7 (0.4% of context) | lr 3.2e-05 | 1.65s/step
+15399.3s	188	VAL step 8000 | T=16384 n_kv=16 | ACC 0.787 | dense attention read: non-static 0.207, all 0.345
+16344.4s	189	step 8500 | lm 1.487 (ema 1.617) | keys 30.4 (0.4% of context) | lr 3.0e-05 | 1.67s/step
+16382.0s	190	VAL step 8500 | T=16384 n_kv=16 | ACC 0.807 | dense attention read: non-static 0.207, all 0.346
+16417.9s	191	PHASE 3 METRICS (tree + FFN: the inference model) | tree attention | task mqar | Tesla T4 | fp16 autocast
+16428.7s	192	
+16428.7s	193	----- SEED 0 | PHASE 3 RESULT -----
+16428.7s	194	=== FINAL (phase 3, tree attention only: the inference path) ===
+16428.7s	195	[1] TOP-1 TOKEN ACCURACY
+16428.7s	196	(MQAR accuracy at the answer positions, on fresh held-out sequences never used in training or stopping; chance ~ 1/4096)
+16428.7s	197	T= 16384 n_kv= 16 | acc 0.783
+16428.7s	198	
+16428.7s	199	==============================================================================
+16428.7s	200	PHASE 3 METRICS (tree + FFN: the inference model) | tree attention | task mqar | Tesla T4 | fp16 autocast
+16428.7s	201	layers 4, heads 4, d_model 256, params 5.27M | wmax 32, budget classes 2,4,8,16,32, max_keys 96, static keys 3 + sink, neighbours on, rope_cap 16384
+16428.7s	202	==============================================================================
+16428.7s	203	[2] NEEDLE ACCURACY BY DEPTH: n/a for MQAR (no needle text; see [1])
+16428.7s	204	
+16428.7s	205	[3] prefill [4] decode speed [5] keys read [6] KV retrieval [8] peak VRAM [9] KV-cache footprint (batch 1, by context length)
+16428.7s	206	context 16384
+16428.7s	207	[3] prefill latency : 1225.7 ms (74.8 us/token)
+16428.7s	208	[4] decode speed : 22.2 tokens/s (45.07 ms/token, median 45.06) over 32 tokens after the prefill
+16428.7s	209	[5] avg keys read/token : prefill 30.7 | decode 29.8 (dense reads 8192 | 16402) cap max_keys=96
+16428.7s	210	[6] KV retrieval : prefill 0.38% (compression x266.6) | decode 0.18% (x551.1)
+16428.7s	211	[8] peak VRAM (forward) : 1140 MB total | the forward adds 740 MB | decoding: 947 MB total, adds 10 MB
+16428.7s	212	[9] KV-cache footprint : 228.0 MB = KV 128.0 + tree index 100.0 (14.2 KB/token; a dense KV cache alone: 128.0 MB)
+16428.7s	213	
+16428.7s	214	[7] KV-CACHE TOP-1 AGREEMENT (cached one-token decoding vs the parallel forward pass, fp32, window 16384)
+16428.7s	215	last 64 tokens | top-1 token agreement 100.0% | max |logit difference| 5.10e-05
+16428.7s	216	
+16428.7s	217	SUMMARY (per context length)
+16428.7s	218	T prefill_ms tok/s keys read% peak_MB cache_MB
+16428.7s	219	16384 1225.7 22.2 29.8 0.18 1140 228.0
+16428.7s	220	(keys / read% are the decode-step numbers; prefill numbers are in the blocks above)
+16428.7s	221	==============================================================================
+16428.7s	222	
+16428.7s	223	
+16428.7s	224	##############################################################################
+16428.7s	225	# INFERENCE | MQAR T=16384 | seed 0 | fresh held-out sequences | tree attention (the inference model)
+16428.7s	226	##############################################################################
+16428.7s	227	
+16428.7s	228	>>> benchmark: tree
+16481.0s	229	==============================================================================
+16481.0s	230	BENCHMARK tree | tree attention | task mqar | Tesla T4 | fp16 autocast
+16481.0s	231	layers 4, heads 4, d_model 256, params 5.27M | wmax 32, budget classes 2,4,8,16,32, max_keys 96, static keys 3 + sink, neighbours on, rope_cap 16384
+16481.0s	232	==============================================================================
+16481.0s	233	[1] TOP-1 TOKEN ACCURACY (MQAR answer positions)
+16481.0s	234	(MQAR accuracy at the answer positions, on fresh held-out sequences never used in training or stopping; chance ~ 1/4096)
+16481.0s	235	T= 16384 n_kv= 16 | acc 0.783
+16481.0s	236	
+16481.0s	237	[2] NEEDLE ACCURACY BY DEPTH: n/a for MQAR (no needle text; see [1])
+16481.0s	238	
+16481.0s	239	[3] prefill [4] decode speed [5] keys read [6] KV retrieval [8] peak VRAM [9] KV-cache footprint (batch 1, by context length)
+16481.0s	240	context 16384
+16481.0s	241	[3] prefill latency : 1231.6 ms (75.2 us/token)
+16481.0s	242	[4] decode speed : 22.3 tokens/s (44.84 ms/token, median 44.57) over 64 tokens after the prefill
+16481.0s	243	[5] avg keys read/token : prefill 30.7 | decode 29.8 (dense reads 8192 | 16418) cap max_keys=96
+16481.0s	244	[6] KV retrieval : prefill 0.38% (compression x266.6) | decode 0.18% (x550.2)
+16481.0s	245	[8] peak VRAM (forward) : 767 MB total | the forward adds 737 MB | decoding: 579 MB total, adds 10 MB
+16481.0s	246	[9] KV-cache footprint : 228.0 MB = KV 128.0 + tree index 100.0 (14.2 KB/token; a dense KV cache alone: 128.0 MB)
+16481.0s	247	
+16481.0s	248	[7] KV-CACHE TOP-1 AGREEMENT (cached one-token decoding vs the parallel forward pass, fp32, window 16384)
+16481.0s	249	last 64 tokens | top-1 token agreement 100.0% | max |logit difference| 5.10e-05
+16481.0s	250	
+16481.0s	251	SUMMARY (per context length)
+16481.0s	252	T prefill_ms tok/s keys read% peak_MB cache_MB
+16481.0s	253	16384 1231.6 22.3 29.8 0.18 767 228.0
+16481.0s	254	(keys / read% are the decode-step numbers; prefill numbers are in the blocks above)
+16481.0s	255	==============================================================================
+16481.0s	256	saved /kaggle/working/repo/runs/mqar_16384/seed0/tree/benchmark.txt and /kaggle/working/repo/runs/mqar_16384/seed0/tree/benchmark.json
+16481.0s	257	
+16481.0s	258	
+16481.0s	259	##############################################################################
+16481.0s	260	# BASELINE | MQAR T=16384 | seed 0 | dense phase-1 model, same fresh sequences
+16481.0s	261	##############################################################################
+16481.0s	262	
+16481.0s	263	>>> benchmark: dense
+16486.2s	264	==============================================================================
+16486.2s	265	BENCHMARK dense | dense attention | task mqar | Tesla T4 | fp16 autocast
+16486.2s	266	layers 4, heads 4, d_model 256, params 5.25M
+16486.2s	267	==============================================================================
+16486.2s	268	[1] TOP-1 TOKEN ACCURACY (MQAR answer positions)
+16486.2s	269	(MQAR accuracy at the answer positions, on fresh held-out sequences never used in training or stopping; chance ~ 1/4096)
+16486.2s	270	T= 16384 n_kv= 16 | acc 0.895
+16486.2s	271	
+16486.2s	272	[2] NEEDLE ACCURACY BY DEPTH: n/a for MQAR (no needle text; see [1])
+16486.2s	273	
+16486.2s	274	[3] prefill [4] decode speed [5] keys read [6] KV retrieval [8] peak VRAM [9] KV-cache footprint (batch 1, by context length)
+16486.2s	275	context 16384
+16486.2s	276	[3] prefill latency : 68.1 ms (4.2 us/token)
+16486.2s	277	[4] decode speed : n/a (dense head has no KV-cache decode path)
+16486.2s	278	[5] avg keys read/token : prefill 8192.5 (dense reads 8192 | n/a)
+16486.2s	279	[6] KV retrieval : prefill 100.00% (compression x1.0)
+16486.2s	280	[8] peak VRAM (forward) : 334 MB total | the forward adds 306 MB
+16486.2s	281	[9] KV-cache footprint : 128.0 MB (analytic dense KV cache: k + v of every layer, 8.0 KB/token)
+16486.2s	282	
+16486.2s	283	[7] KV-CACHE TOP-1 AGREEMENT: n/a (the dense head has no cache)
+16486.2s	284	
+16486.2s	285	SUMMARY (per context length)
+16486.2s	286	T prefill_ms tok/s keys read% peak_MB cache_MB
+16486.2s	287	16384 68.1 n/a 8192.5 100.00 334 128.0
+16486.2s	288	(dense: reads every key)
+16486.2s	289	==============================================================================
+16486.2s	290	saved /kaggle/working/repo/runs/mqar_16384/seed0/dense/benchmark.txt and /kaggle/working/repo/runs/mqar_16384/seed0/dense/benchmark.json
+16486.2s	291	
+16486.2s	292	
+16486.2s	293	##############################################################################
+16486.2s	294	# TRAINING | MQAR T=16384 | seed 1 | phase 1 target 0.95 | gate_k 16 | wmax 32, max_keys 96
+16486.2s	295	##############################################################################
+16486.2s	296	
+16486.2s	297	>>> phase 1 (dense)
+16488.2s	298	PHASE 1 dense | task mqar | device cuda | params 5.25M | seq_len 16384 | budget 10000 steps | target accuracy 0.95 | plateau: patience 5, delta 0.002, from step 9000
+16489.6s	299	step 1 | lm 9.073 (ema 9.073) | lr 1.0e-05 | 0.54s/step
+16515.3s	300	VAL step 250 | accuracy 0.020 (target 0.95) | T=16384 n_kv=16 | ACC 0.020
+16536.9s	301	step 500 | lm 6.885 (ema 6.943) | lr 9.9e-04 | 0.10s/step
+16541.4s	302	VAL step 500 | accuracy 0.025 (target 0.95) | T=16384 n_kv=16 | ACC 0.025
+16567.0s	303	VAL step 750 | accuracy 0.041 (target 0.95) | T=16384 n_kv=16 | ACC 0.041
+16588.2s	304	step 1000 | lm 6.690 (ema 6.693) | lr 9.8e-04 | 0.10s/step
+16592.6s	305	VAL step 1000 | accuracy 0.041 (target 0.95) | T=16384 n_kv=16 | ACC 0.041
+16618.3s	306	VAL step 1250 | accuracy 0.088 (target 0.95) | T=16384 n_kv=16 | ACC 0.088
+16639.7s	307	step 1500 | lm 5.553 (ema 5.650) | lr 9.5e-04 | 0.10s/step
+16644.2s	308	VAL step 1500 | accuracy 0.070 (target 0.95) | T=16384 n_kv=16 | ACC 0.070
+16670.1s	309	VAL step 1750 | accuracy 0.109 (target 0.95) | T=16384 n_kv=16 | ACC 0.109
+16691.4s	310	step 2000 | lm 5.004 (ema 4.975) | lr 9.1e-04 | 0.10s/step
+16695.8s	311	VAL step 2000 | accuracy 0.121 (target 0.95) | T=16384 n_kv=16 | ACC 0.121
+16721.6s	312	VAL step 2250 | accuracy 0.102 (target 0.95) | T=16384 n_kv=16 | ACC 0.102
+16742.9s	313	step 2500 | lm 4.425 (ema 4.525) | lr 8.7e-04 | 0.10s/step
+16747.4s	314	VAL step 2500 | accuracy 0.102 (target 0.95) | T=16384 n_kv=16 | ACC 0.102
+16773.2s	315	VAL step 2750 | accuracy 0.129 (target 0.95) | T=16384 n_kv=16 | ACC 0.129
+16794.5s	316	step 3000 | lm 3.506 (ema 3.770) | lr 8.1e-04 | 0.10s/step
+16799.0s	317	VAL step 3000 | accuracy 0.211 (target 0.95) | T=16384 n_kv=16 | ACC 0.211
+16826.0s	318	VAL step 3250 | accuracy 0.395 (target 0.95) | T=16384 n_kv=16 | ACC 0.395
+16848.6s	319	step 3500 | lm 2.202 (ema 2.440) | lr 7.5e-04 | 0.10s/step
+16853.1s	320	VAL step 3500 | accuracy 0.467 (target 0.95) | T=16384 n_kv=16 | ACC 0.467
+16880.2s	321	VAL step 3750 | accuracy 0.557 (target 0.95) | T=16384 n_kv=16 | ACC 0.557
+16902.7s	322	step 4000 | lm 1.440 (ema 1.605) | lr 6.9e-04 | 0.10s/step
+16907.2s	323	VAL step 4000 | accuracy 0.594 (target 0.95) | T=16384 n_kv=16 | ACC 0.594
+16934.1s	324	VAL step 4250 | accuracy 0.645 (target 0.95) | T=16384 n_kv=16 | ACC 0.645
+16956.3s	325	step 4500 | lm 1.114 (ema 1.046) | lr 6.2e-04 | 0.10s/step
+16960.8s	326	VAL step 4500 | accuracy 0.668 (target 0.95) | T=16384 n_kv=16 | ACC 0.668
+16996.6s	327	VAL step 4750 | accuracy 0.691 (target 0.95) | T=16384 n_kv=16 | ACC 0.691
+17027.9s	328	step 5000 | lm 1.019 (ema 1.153) | lr 5.5e-04 | 0.11s/step
+17032.4s	329	VAL step 5000 | accuracy 0.773 (target 0.95) | T=16384 n_kv=16 | ACC 0.773
+17068.2s	330	VAL step 5250 | accuracy 0.857 (target 0.95) | T=16384 n_kv=16 | ACC 0.857
+17099.4s	331	step 5500 | lm 0.489 (ema 0.779) | lr 4.8e-04 | 0.11s/step
+17103.9s	332	VAL step 5500 | accuracy 0.893 (target 0.95) | T=16384 n_kv=16 | ACC 0.893
+17139.7s	333	VAL step 5750 | accuracy 0.914 (target 0.95) | T=16384 n_kv=16 | ACC 0.914
+17170.9s	334	step 6000 | lm 0.751 (ema 0.983) | lr 4.1e-04 | 0.11s/step
+17175.4s	335	VAL step 6000 | accuracy 0.916 (target 0.95) | T=16384 n_kv=16 | ACC 0.916
+17211.2s	336	VAL step 6250 | accuracy 0.906 (target 0.95) | T=16384 n_kv=16 | ACC 0.906
+17242.4s	337	step 6500 | lm 1.035 (ema 0.949) | lr 3.5e-04 | 0.12s/step
+17246.9s	338	VAL step 6500 | accuracy 0.932 (target 0.95) | T=16384 n_kv=16 | ACC 0.932
+17282.5s	339	VAL step 6750 | accuracy 0.924 (target 0.95) | T=16384 n_kv=16 | ACC 0.924
+17313.7s	340	step 7000 | lm 0.827 (ema 0.707) | lr 2.9e-04 | 0.12s/step
+17318.2s	341	VAL step 7000 | accuracy 0.910 (target 0.95) | T=16384 n_kv=16 | ACC 0.910
+17393.1s	342	VAL step 7250 | accuracy 0.904 (target 0.95) | T=16384 n_kv=16 | ACC 0.904
+17463.4s	343	step 7500 | lm 2.238 (ema 1.971) | lr 2.3e-04 | 0.13s/step
+17467.9s	344	VAL step 7500 | accuracy 0.859 (target 0.95) | T=16384 n_kv=16 | ACC 0.859
+17542.7s	345	VAL step 7750 | accuracy 0.855 (target 0.95) | T=16384 n_kv=16 | ACC 0.855
+17612.9s	346	step 8000 | lm 2.392 (ema 2.632) | lr 1.9e-04 | 0.14s/step
+17617.3s	347	VAL step 8000 | accuracy 0.811 (target 0.95) | T=16384 n_kv=16 | ACC 0.811
+17691.7s	348	VAL step 8250 | accuracy 0.820 (target 0.95) | T=16384 n_kv=16 | ACC 0.820
+17761.8s	349	step 8500 | lm 1.975 (ema 2.798) | lr 1.5e-04 | 0.15s/step
+17766.3s	350	VAL step 8500 | accuracy 0.830 (target 0.95) | T=16384 n_kv=16 | ACC 0.830
+17841.0s	351	VAL step 8750 | accuracy 0.857 (target 0.95) | T=16384 n_kv=16 | ACC 0.857
+17911.3s	352	step 9000 | lm 2.302 (ema 2.450) | lr 1.2e-04 | 0.16s/step
+17915.8s	353	VAL step 9000 | accuracy 0.863 (target 0.95) | T=16384 n_kv=16 | ACC 0.863
+17990.7s	354	VAL step 9250 | accuracy 0.857 (target 0.95) | T=16384 n_kv=16 | ACC 0.857
+18061.1s	355	step 9500 | lm 1.659 (ema 2.188) | lr 1.1e-04 | 0.17s/step
+18065.6s	356	VAL step 9500 | accuracy 0.857 (target 0.95) | T=16384 n_kv=16 | ACC 0.857
+18140.4s	357	VAL step 9750 | accuracy 0.891 (target 0.95) | T=16384 n_kv=16 | ACC 0.891
+18210.4s	358	step 10000 | lm 1.502 (ema 1.926) | lr 1.0e-04 | 0.17s/step
+18214.8s	359	VAL step 10000 | accuracy 0.914 (target 0.95) | T=16384 n_kv=16 | ACC 0.914
+18217.1s	360	PHASE 1 METRICS | dense attention | task mqar | Tesla T4 | fp16 autocast
+18218.0s	361	
+18218.0s	362	----- SEED 1 | PHASE 1 RESULT -----
+18218.0s	363	=== PHASE 1 finished at step 10000: plateau: no gain above 0.002 for 5 evaluations (best 0.932) ===
+18218.0s	364	=== FINAL (phase 1, dense attention) ===
+18218.0s	365	[1] TOP-1 TOKEN ACCURACY
+18218.0s	366	(MQAR accuracy at the answer positions, on fresh held-out sequences never used in training or stopping; chance ~ 1/4096)
+18218.0s	367	T= 16384 n_kv= 16 | acc 0.893
+18218.0s	368	
+18218.0s	369	==============================================================================
+18218.0s	370	PHASE 1 METRICS | dense attention | task mqar | Tesla T4 | fp16 autocast
+18218.0s	371	layers 4, heads 4, d_model 256, params 5.25M
+18218.0s	372	==============================================================================
+18218.0s	373	[2] NEEDLE ACCURACY BY DEPTH: n/a for MQAR (no needle text; see [1])
+18218.0s	374	
+18218.0s	375	[3] prefill [4] decode speed [5] keys read [6] KV retrieval [8] peak VRAM [9] KV-cache footprint (batch 1, by context length)
+18218.0s	376	context 16384
+18218.0s	377	[3] prefill latency : 77.3 ms (4.7 us/token)
+18218.0s	378	[4] decode speed : n/a (dense head has no KV-cache decode path)
+18218.0s	379	[5] avg keys read/token : prefill 8192.5 (dense reads 8192 | n/a)
+18218.0s	380	[6] KV retrieval : prefill 100.00% (compression x1.0)
+18218.0s	381	[8] peak VRAM (forward) : 659 MB total | the forward adds 306 MB
+18218.0s	382	[9] KV-cache footprint : 128.0 MB (analytic dense KV cache: k + v of every layer, 8.0 KB/token)
+18218.0s	383	
+18218.0s	384	[7] KV-CACHE TOP-1 AGREEMENT: n/a (the dense head has no cache)
+18218.0s	385	
+18218.0s	386	SUMMARY (per context length)
+18218.0s	387	T prefill_ms tok/s keys read% peak_MB cache_MB
+18218.0s	388	16384 77.3 n/a 8192.5 100.00 659 128.0
+18218.0s	389	(dense: reads every key)
+18218.0s	390	==============================================================================
+18218.0s	391	
+18218.0s	392	
+18218.0s	393	>>> phase 2 (distill the tree)
+18220.1s	394	PHASE 2 distill | task mqar | device cuda | trainable 1.08M of 5.27M params (tree attention only) | warm start True | target similarity 0.90 (far) | wmax 32 classes 2,4,8,16,32 max_keys 96 rope_cap 16384
+18223.2s	395	SIM step 0 | similarity 0.293 (far) | all-mass 0.426 | top-16 hit 0.262 | per layer 0.07 0.56 0.35 0.19
+18223.8s	396	step 1 | split 5.279 pred 1.612 | train similarity 0.445 | keys 18.7 (14.6% of context) | lr 6.0e-06 | 0.63s/step
+18298.2s	397	SIM step 100 | similarity 0.481 (far) | all-mass 0.573 | top-16 hit 0.456 | per layer 0.29 0.67 0.50 0.45
+18373.1s	398	SIM step 200 | similarity 0.526 (far) | all-mass 0.617 | top-16 hit 0.463 | per layer 0.32 0.82 0.51 0.46
+18447.9s	399	SIM step 300 | similarity 0.535 (far) | all-mass 0.625 | top-16 hit 0.457 | per layer 0.32 0.85 0.51 0.46
+18522.7s	400	SIM step 400 | similarity 0.527 (far) | all-mass 0.618 | top-16 hit 0.459 | per layer 0.32 0.82 0.51 0.46
+18596.0s	401	step 500 | split 3.466 pred 0.169 | train similarity 0.363 | keys 32.1 (0.4% of context) | lr 3.0e-04 | 0.75s/step
+18597.4s	402	SIM step 500 | similarity 0.524 (far) | all-mass 0.615 | top-16 hit 0.459 | per layer 0.32 0.81 0.51 0.46
+18672.1s	403	SIM step 600 | similarity 0.520 (far) | all-mass 0.610 | top-16 hit 0.457 | per layer 0.31 0.79 0.51 0.46
+18672.1s	404	PHASE 2 METRICS (best checkpoint: tree attention aligned to the dense model) | tree attention | task mqar | Tesla T4 | fp16 autocast
+18718.8s	405	
+18718.8s	406	----- SEED 1 | PHASE 2 RESULT -----
+18718.8s	407	=== PHASE 2 finished at step 600: plateau: no gain above 0.003 for 3 evaluations (best 0.535) ===
+18718.8s	408	similarity of the saved checkpoint: 0.535
+18718.8s	409	
+18718.8s	410	==============================================================================
+18718.8s	411	PHASE 2 METRICS (best checkpoint: tree attention aligned to the dense model) | tree attention | task mqar | Tesla T4 | fp16 autocast
+18718.8s	412	layers 4, heads 4, d_model 256, params 5.27M | wmax 32, budget classes 2,4,8,16,32, max_keys 96, static keys 3 + sink, neighbours on, rope_cap 16384
+18718.8s	413	==============================================================================
+18718.8s	414	[1] TOP-1 TOKEN ACCURACY (MQAR answer positions)
+18718.8s	415	T=16384 n_kv=16 | ACC 0.189
+18718.8s	416	
+18718.8s	417	[2] NEEDLE ACCURACY BY DEPTH: n/a for MQAR (no needle text; see [1])
+18718.8s	418	
+18718.8s	419	[3] prefill [4] decode speed [5] keys read [6] KV retrieval [8] peak VRAM [9] KV-cache footprint (batch 1, by context length)
+18718.8s	420	context 16384
+18718.8s	421	[3] prefill latency : 1223.1 ms (74.7 us/token)
+18718.8s	422	[4] decode speed : 22.2 tokens/s (44.96 ms/token, median 44.72) over 32 tokens after the prefill
+18718.8s	423	[5] avg keys read/token : prefill 31.7 | decode 28.4 (dense reads 8192 | 16402) cap max_keys=96
+18718.8s	424	[6] KV retrieval : prefill 0.39% (compression x258.7) | decode 0.17% (x577.1)
+18718.8s	425	[8] peak VRAM (forward) : 993 MB total | the forward adds 738 MB | decoding: 800 MB total, adds 6 MB
+18718.8s	426	[9] KV-cache footprint : 228.0 MB = KV 128.0 + tree index 100.0 (14.2 KB/token; a dense KV cache alone: 128.0 MB)
+18718.8s	427	
+18718.8s	428	[7] KV-CACHE TOP-1 AGREEMENT (cached one-token decoding vs the parallel forward pass, fp32, window 16384)
+18718.8s	429	last 64 tokens | top-1 token agreement 100.0% | max |logit difference| 9.73e-05
+18718.8s	430	
+18718.8s	431	SUMMARY (per context length)
+18718.8s	432	T prefill_ms tok/s keys read% peak_MB cache_MB
+18718.8s	433	16384 1223.1 22.2 28.4 0.17 993 228.0
+18718.8s	434	(keys / read% are the decode-step numbers; prefill numbers are in the blocks above)
+18718.8s	435	==============================================================================
+18718.8s	436	
+18718.8s	437	
+18718.8s	438	>>> phase 3 (tree + FFN)
+18721.0s	439	PHASE 3 tree + FFN | task mqar | device cuda | params 5.27M | all parameters at 1x lr 3.0e-04 | steps 8500 | rope_cap 16384 | dense monitor True | keep_ref False
+18760.5s	440	START step 0 | T=16384 n_kv=16 | ACC 0.189 | dense attention read: non-static 0.409, all 0.524
+18762.0s	441	step 1 | lm 6.372 (ema 6.372) | keys 28.1 (21.8% of context) | lr 3.0e-06 | 1.51s/step
+19488.1s	442	step 500 | lm 1.761 (ema 1.736) | keys 27.9 (21.7% of context) | lr 3.0e-04 | 1.46s/step
+19525.8s	443	VAL step 500 | T=16384 n_kv=16 | ACC 0.609 | dense attention read: non-static 0.286, all 0.417
+20250.9s	444	step 1000 | lm 1.450 (ema 1.389) | keys 27.6 (21.5% of context) | lr 2.9e-04 | 1.49s/step
+20288.6s	445	VAL step 1000 | T=16384 n_kv=16 | ACC 0.545 | dense attention read: non-static 0.229, all 0.360
+21011.5s	446	step 1500 | lm 1.165 (ema 1.285) | keys 27.9 (21.7% of context) | lr 2.8e-04 | 1.50s/step
+21049.0s	447	VAL step 1500 | T=16384 n_kv=16 | ACC 0.584 | dense attention read: non-static 0.230, all 0.363
+21770.2s	448	step 2000 | lm 1.062 (ema 1.252) | keys 28.0 (21.8% of context) | lr 2.6e-04 | 1.50s/step
+21807.7s	449	VAL step 2000 | T=16384 n_kv=16 | ACC 0.564 | dense attention read: non-static 0.226, all 0.360
+22528.4s	450	step 2500 | lm 0.833 (ema 0.984) | keys 28.0 (21.8% of context) | lr 2.5e-04 | 1.51s/step
+22566.1s	451	VAL step 2500 | T=16384 n_kv=16 | ACC 0.693 | dense attention read: non-static 0.228, all 0.362
+23286.4s	452	step 3000 | lm 0.998 (ema 0.853) | keys 28.1 (21.9% of context) | lr 2.3e-04 | 1.51s/step
+23324.1s	453	VAL step 3000 | T=16384 n_kv=16 | ACC 0.654 | dense attention read: non-static 0.220, all 0.353
+24105.5s	454	step 3500 | lm 1.217 (ema 1.164) | keys 30.3 (5.9% of context) | lr 2.0e-04 | 1.53s/step
+24143.2s	455	VAL step 3500 | T=16384 n_kv=16 | ACC 0.750 | dense attention read: non-static 0.227, all 0.361
+24924.6s	456	step 4000 | lm 1.171 (ema 1.032) | keys 30.3 (5.9% of context) | lr 1.8e-04 | 1.54s/step
+24962.3s	457	VAL step 4000 | T=16384 n_kv=16 | ACC 0.727 | dense attention read: non-static 0.223, all 0.357
+25743.7s	458	step 4500 | lm 0.822 (ema 0.927) | keys 30.2 (5.9% of context) | lr 1.5e-04 | 1.55s/step
+25781.4s	459	VAL step 4500 | T=16384 n_kv=16 | ACC 0.756 | dense attention read: non-static 0.225, all 0.358
+26632.2s	460	step 5000 | lm 1.412 (ema 1.367) | keys 31.2 (1.5% of context) | lr 1.3e-04 | 1.57s/step
+26669.9s	461	VAL step 5000 | T=16384 n_kv=16 | ACC 0.801 | dense attention read: non-static 0.231, all 0.364
+27521.2s	462	step 5500 | lm 1.434 (ema 1.336) | keys 31.2 (1.5% of context) | lr 1.0e-04 | 1.59s/step
+27558.8s	463	VAL step 5500 | T=16384 n_kv=16 | ACC 0.777 | dense attention read: non-static 0.234, all 0.367
+28410.4s	464	step 6000 | lm 1.684 (ema 1.299) | keys 31.1 (1.5% of context) | lr 8.4e-05 | 1.61s/step
+28448.0s	465	VAL step 6000 | T=16384 n_kv=16 | ACC 0.770 | dense attention read: non-static 0.226, all 0.359
+29299.5s	466	step 6500 | lm 0.995 (ema 1.217) | keys 31.1 (1.5% of context) | lr 6.5e-05 | 1.62s/step
+29337.2s	467	VAL step 6500 | T=16384 n_kv=16 | ACC 0.797 | dense attention read: non-static 0.225, all 0.359
+30189.1s	468	step 7000 | lm 0.873 (ema 1.178) | keys 31.1 (1.5% of context) | lr 5.0e-05 | 1.63s/step
+30226.7s	469	VAL step 7000 | T=16384 n_kv=16 | ACC 0.822 | dense attention read: non-static 0.228, all 0.361
+31170.7s	470	step 7500 | lm 0.112 (ema 1.551) | keys 31.6 (0.4% of context) | lr 3.9e-05 | 1.65s/step
+31208.2s	471	VAL step 7500 | T=16384 n_kv=16 | ACC 0.838 | dense attention read: non-static 0.228, all 0.361
+32152.1s	472	step 8000 | lm 0.659 (ema 1.471) | keys 31.2 (0.4% of context) | lr 3.2e-05 | 1.67s/step
+32189.8s	473	VAL step 8000 | T=16384 n_kv=16 | ACC 0.822 | dense attention read: non-static 0.225, all 0.358
+33133.2s	474	step 8500 | lm 0.513 (ema 1.534) | keys 31.3 (0.4% of context) | lr 3.0e-05 | 1.69s/step
+33170.8s	475	VAL step 8500 | T=16384 n_kv=16 | ACC 0.832 | dense attention read: non-static 0.228, all 0.361
+33206.5s	476	PHASE 3 METRICS (tree + FFN: the inference model) | tree attention | task mqar | Tesla T4 | fp16 autocast
+33217.4s	477	
+33217.4s	478	----- SEED 1 | PHASE 3 RESULT -----
+33217.4s	479	=== FINAL (phase 3, tree attention only: the inference path) ===
+33217.4s	480	[1] TOP-1 TOKEN ACCURACY
+33217.4s	481	(MQAR accuracy at the answer positions, on fresh held-out sequences never used in training or stopping; chance ~ 1/4096)
+33217.4s	482	T= 16384 n_kv= 16 | acc 0.801
+33217.4s	483	
+33217.4s	484	==============================================================================
+33217.4s	485	PHASE 3 METRICS (tree + FFN: the inference model) | tree attention | task mqar | Tesla T4 | fp16 autocast
+33217.4s	486	layers 4, heads 4, d_model 256, params 5.27M | wmax 32, budget classes 2,4,8,16,32, max_keys 96, static keys 3 + sink, neighbours on, rope_cap 16384
+33217.4s	487	==============================================================================
+33217.4s	488	[2] NEEDLE ACCURACY BY DEPTH: n/a for MQAR (no needle text; see [1])
+33217.4s	489	
+33217.4s	490	[3] prefill [4] decode speed [5] keys read [6] KV retrieval [8] peak VRAM [9] KV-cache footprint (batch 1, by context length)
+33217.4s	491	context 16384
+33217.4s	492	[3] prefill latency : 1223.3 ms (74.7 us/token)
+33217.4s	493	[4] decode speed : 21.8 tokens/s (45.95 ms/token, median 44.95) over 32 tokens after the prefill
+33217.4s	494	[5] avg keys read/token : prefill 31.5 | decode 30.5 (dense reads 8192 | 16402) cap max_keys=96
+33217.4s	495	[6] KV retrieval : prefill 0.38% (compression x260.2) | decode 0.19% (x537.2)
+33217.4s	496	[8] peak VRAM (forward) : 1140 MB total | the forward adds 740 MB | decoding: 947 MB total, adds 10 MB
+33217.4s	497	[9] KV-cache footprint : 228.0 MB = KV 128.0 + tree index 100.0 (14.2 KB/token; a dense KV cache alone: 128.0 MB)
+33217.4s	498	
+33217.4s	499	[7] KV-CACHE TOP-1 AGREEMENT (cached one-token decoding vs the parallel forward pass, fp32, window 16384)
+33217.4s	500	last 64 tokens | top-1 token agreement 100.0% | max |logit difference| 8.96e-05
+33217.4s	501	
+33217.4s	502	SUMMARY (per context length)
+33217.4s	503	T prefill_ms tok/s keys read% peak_MB cache_MB
+33217.4s	504	16384 1223.3 21.8 30.5 0.19 1140 228.0
+33217.4s	505	(keys / read% are the decode-step numbers; prefill numbers are in the blocks above)
+33217.4s	506	==============================================================================
+33217.4s	507	
+33217.4s	508	
+33217.4s	509	##############################################################################
+33217.4s	510	# INFERENCE | MQAR T=16384 | seed 1 | fresh held-out sequences | tree attention (the inference model)
+33217.4s	511	##############################################################################
+33217.4s	512	
+33217.4s	513	>>> benchmark: tree
+33269.5s	514	==============================================================================
+33269.5s	515	BENCHMARK tree | tree attention | task mqar | Tesla T4 | fp16 autocast
+33269.5s	516	layers 4, heads 4, d_model 256, params 5.27M | wmax 32, budget classes 2,4,8,16,32, max_keys 96, static keys 3 + sink, neighbours on, rope_cap 16384
+33269.5s	517	==============================================================================
+33269.5s	518	[1] TOP-1 TOKEN ACCURACY (MQAR answer positions)
+33269.5s	519	(MQAR accuracy at the answer positions, on fresh held-out sequences never used in training or stopping; chance ~ 1/4096)
+33269.5s	520	T= 16384 n_kv= 16 | acc 0.801
+33269.5s	521	
+33269.5s	522	[2] NEEDLE ACCURACY BY DEPTH: n/a for MQAR (no needle text; see [1])
+33269.5s	523	
+33269.5s	524	[3] prefill [4] decode speed [5] keys read [6] KV retrieval [8] peak VRAM [9] KV-cache footprint (batch 1, by context length)
+33269.5s	525	context 16384
+33269.5s	526	[3] prefill latency : 1227.4 ms (74.9 us/token)
+33269.5s	527	[4] decode speed : 22.4 tokens/s (44.72 ms/token, median 44.59) over 64 tokens after the prefill
+33269.5s	528	[5] avg keys read/token : prefill 31.5 | decode 30.7 (dense reads 8192 | 16418) cap max_keys=96
+33269.5s	529	[6] KV retrieval : prefill 0.38% (compression x260.2) | decode 0.19% (x534.1)
+33269.5s	530	[8] peak VRAM (forward) : 767 MB total | the forward adds 737 MB | decoding: 579 MB total, adds 10 MB
+33269.5s	531	[9] KV-cache footprint : 228.0 MB = KV 128.0 + tree index 100.0 (14.2 KB/token; a dense KV cache alone: 128.0 MB)
+33269.5s	532	
+33269.5s	533	[7] KV-CACHE TOP-1 AGREEMENT (cached one-token decoding vs the parallel forward pass, fp32, window 16384)
+33269.5s	534	last 64 tokens | top-1 token agreement 100.0% | max |logit difference| 8.96e-05
+33269.5s	535	
+33269.5s	536	SUMMARY (per context length)
+33269.5s	537	T prefill_ms tok/s keys read% peak_MB cache_MB
+33269.5s	538	16384 1227.4 22.4 30.7 0.19 767 228.0
+33269.5s	539	(keys / read% are the decode-step numbers; prefill numbers are in the blocks above)
+33269.5s	540	==============================================================================
+33269.5s	541	saved /kaggle/working/repo/runs/mqar_16384/seed1/tree/benchmark.txt and /kaggle/working/repo/runs/mqar_16384/seed1/tree/benchmark.json
+33269.5s	542	
+33269.5s	543	
+33269.5s	544	##############################################################################
+33269.5s	545	# BASELINE | MQAR T=16384 | seed 1 | dense phase-1 model, same fresh sequences
+33269.5s	546	##############################################################################
+33269.5s	547	
+33269.5s	548	>>> benchmark: dense
+33274.8s	549	==============================================================================
+33274.8s	550	BENCHMARK dense | dense attention | task mqar | Tesla T4 | fp16 autocast
+33274.8s	551	layers 4, heads 4, d_model 256, params 5.25M
+33274.8s	552	==============================================================================
+33274.8s	553	[1] TOP-1 TOKEN ACCURACY (MQAR answer positions)
+33274.8s	554	(MQAR accuracy at the answer positions, on fresh held-out sequences never used in training or stopping; chance ~ 1/4096)
+33274.8s	555	T= 16384 n_kv= 16 | acc 0.893
+33274.8s	556	
+33274.8s	557	[2] NEEDLE ACCURACY BY DEPTH: n/a for MQAR (no needle text; see [1])
+33274.8s	558	
+33274.8s	559	[3] prefill [4] decode speed [5] keys read [6] KV retrieval [8] peak VRAM [9] KV-cache footprint (batch 1, by context length)
+33274.8s	560	context 16384
+33274.8s	561	[3] prefill latency : 66.3 ms (4.0 us/token)
+33274.8s	562	[4] decode speed : n/a (dense head has no KV-cache decode path)
+33274.8s	563	[5] avg keys read/token : prefill 8192.5 (dense reads 8192 | n/a)
+33274.8s	564	[6] KV retrieval : prefill 100.00% (compression x1.0)
+33274.8s	565	[8] peak VRAM (forward) : 334 MB total | the forward adds 306 MB
+33274.8s	566	[9] KV-cache footprint : 128.0 MB (analytic dense KV cache: k + v of every layer, 8.0 KB/token)
+33274.8s	567	
+33274.8s	568	[7] KV-CACHE TOP-1 AGREEMENT: n/a (the dense head has no cache)
+33274.8s	569	
+33274.8s	570	SUMMARY (per context length)
+33274.8s	571	T prefill_ms tok/s keys read% peak_MB cache_MB
+33274.8s	572	16384 66.3 n/a 8192.5 100.00 334 128.0
+33274.8s	573	(dense: reads every key)
+33274.8s	574	==============================================================================
+33274.8s	575	saved /kaggle/working/repo/runs/mqar_16384/seed1/dense/benchmark.txt and /kaggle/working/repo/runs/mqar_16384/seed1/dense/benchmark.json
