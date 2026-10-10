@@ -10,17 +10,17 @@ Here are the basic MQAR inference results:
 | Model Variant (T=1024) 3 Seeds | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
 |---|---|---|---|---|---|
 | Dense Baseline(Teacher) | 94.9% ± 1.5% | 512.5(Full) | 1.0 x (100% Read) | 57MB | N/A |
-| ALHR(Tree attention) | 92.1% ± 0.6% | 30.0 | 35.3 x (2.83% Read) | 422MB | 100.0% |
+| ALHR(Tree attention) | 92.1% ± 0.6% | 30.0 | x 35.3 (2.83% Read) | 422MB | 100.0% |
 
 | Model Variant (T=4096) 3 Seeds | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
 |---|---|---|---|---|---|
 | Dense Baseline(Teacher) | 95.4% ± 0.010% | 2048 (Full) | 1.0 x (100% Read) | 112MB | N/A |
-| ALHR(Tree attention) | 93.3% ± 0.03% | 32.0 | 126.2 x (2.83% Read) | 491MB | 100.0% |
+| ALHR(Tree attention) | 93.3% ± 0.03% | 32.0 | x 126.2 (0.79% Read) | 491MB | 100.0% |
 
 | Model Variant (T=16384) 2 Seeds | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
 |---|---|---|---|---|---|
 | Dense Baseline(Teacher) | 89.4% ± 0.010% | 8192 (Full) | 1.0 x (100% Read) | 334MB | N/A |
-| ALHR(Tree attention) | 79.2% ± 0.009% | 30.0 | 126.2 x (2.83% Read) | 767MB | 100.0% |
+| ALHR(Tree attention) | 79.2% ± 0.009% | 30.0 | x 550.2 (0.18% Read) | 767MB | 100.0% |
 
 **NOTE**:
 Accuracy drop in 16k, is NOT because of an architectural flaw where accuracy drop grows with growing tokens, as we can observe, 1k and 4k tokens show the same accuracy drop. The reason is that our model is too small and I didn't have the resources to scale it up, hence you can see that BOTH dense and ALHR took a hit in 16K.
@@ -70,20 +70,20 @@ The exact log and the reproducible Kaggle script is in the logs folder
 
 ## 1024 Tokens Standard MQAR testing
 
-| Model Variant (T=1024) | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
+| Model Variant (T=1024) 3 Seeds | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
 |---|---|---|---|---|---|
 | Dense Baseline(Teacher) | 94.9% ± 1.5% | 512.5(Full) | 1.0 x (100% Read) | 57MB | N/A |
-| ALHR(Tree attention) | 92.1% ± 0.6% | 30.0 | 35.3 x (2.83% Read) | 422MB | 100.0% |
+| ALHR(Tree attention) | 92.1% ± 0.6% | 30.0 | x 35.3 (2.83% Read) | 422MB | 100.0% |
 
 | Model Variant (T=4096) 3 Seeds | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
 |---|---|---|---|---|---|
 | Dense Baseline(Teacher) | 95.4% ± 0.010% | 2048 (Full) | 1.0 x (100% Read) | 112MB | N/A |
-| ALHR(Tree attention) | 93.3% ± 0.03% | 32.0 | 126.2 x (2.83% Read) | 491MB | 100.0% |
+| ALHR(Tree attention) | 93.3% ± 0.03% | 32.0 | x 126.2 (0.79% Read) | 491MB | 100.0% |
 
 | Model Variant (T=16384) 2 Seeds | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
 |---|---|---|---|---|---|
 | Dense Baseline(Teacher) | 89.4% ± 0.010% | 8192 (Full) | 1.0 x (100% Read) | 334MB | N/A |
-| ALHR(Tree attention) | 79.2% ± 0.009% | 30.0 | 126.2 x (2.83% Read) | 767MB | 100.0% |
+| ALHR(Tree attention) | 79.2% ± 0.009% | 30.0 | x 550.2 (0.18% Read) | 767MB | 100.0% |
 
 
 Now as you can see, we achieve near dense accuracy while reading a small amount of keys.
