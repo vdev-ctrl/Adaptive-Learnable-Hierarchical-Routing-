@@ -23,10 +23,14 @@ Here are the basic MQAR inference results:
 | ALHR(Tree attention) | 79.2% ± 0.009% | 30.0 | x 550.2 (0.18% Read) | 767MB | 100.0% |
 
 **NOTE**:
-Accuracy drop in 16k, is NOT because of an architectural flaw where accuracy drop grows with growing tokens, as we can observe, 1k and 4k tokens show the same accuracy drop. The reason is that our model is too small and I didn't have the resources to scale it up, hence you can see that BOTH dense and ALHR took a hit in 16K.
+Accuracy drop in 16k, is NOT because of an architectural flaw where accuracy drop grows with growing tokens, as we can observe, 1k and 4k tokens show the same accuracy drop.
+
+The reason is that our model is too small and I didn't have the resources to scale it up, hence you can see that BOTH dense and ALHR took a hit in 16K.
 
 ALSO, observe VRAM scaling here
+
 For dense, doubling the tokens makes peak VRAM x1.96, while in tree it is 1.16
+
 And when we quadruple the tokens in dense, peak VRAM goes x2.9 for dense, while for ours it is x1.56
 
 ALHR PEAK VRAM SCALES MORE EFFICIENTLY THAN DENSE.
