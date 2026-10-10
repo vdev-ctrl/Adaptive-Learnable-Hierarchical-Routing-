@@ -3,6 +3,36 @@
 An attention mechanism using static binary trees and learnable functions to achieve sub-quadratic inference without meaningful accuracy loss. 
 I used a static binary tree to sort the key matrix, where each branch is indexed by the sum of all the key vectors beneath it.
 
+## TLDR:
+This is a alternative for self-attention that uses O(NlogN) operations instead of O(N^2) operations WITHOUT any significant accuracy loss and uses LESS memory.
+Here are the basic MQAR inference results:
+
+| Model Variant (T=1024) 3 Seeds | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
+|---|---|---|---|---|---|
+| Dense Baseline(Teacher) | 94.9% ± 1.5% | 512.5(Full) | 1.0 x (100% Read) | 57MB | N/A |
+| ALHR(Tree attention) | 92.1% ± 0.6% | 30.0 | 35.3 x (2.83% Read) | 422MB | 100.0% |
+
+| Model Variant (T=4096) 3 Seeds | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
+|---|---|---|---|---|---|
+| Dense Baseline(Teacher) | 95.4% ± 0.010% | 2048 (Full) | 1.0 x (100% Read) | 112MB | N/A |
+| ALHR(Tree attention) | 93.3% ± 0.03% | 32.0 | 126.2 x (2.83% Read) | 491MB | 100.0% |
+
+| Model Variant (T=16384) 2 Seeds | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
+|---|---|---|---|---|---|
+| Dense Baseline(Teacher) | 89.4% ± 0.010% | 8192 (Full) | 1.0 x (100% Read) | 334MB | N/A |
+| ALHR(Tree attention) | 79.2% ± 0.009% | 30.0 | 126.2 x (2.83% Read) | 767MB | 100.0% |
+
+**NOTE**:
+Accuracy drop in 16k, is NOT because of an architectural flaw where accuracy drop grows with growing tokens, as we can observe, 1k and 4k tokens show the same accuracy drop. The reason is that our model is too small and I didn't have the resources to scale it up, hence you can see that BOTH dense and ALHR took a hit in 16K.
+
+ALSO, observe VRAM scaling here
+For dense, doubling the tokens makes peak VRAM x1.96, while in tree it is 1.16
+And when we quadruple the tokens in dense, peak VRAM goes x2.9 for dense, while for ours it is x1.56
+
+ALHR PEAK VRAM SCALES MORE EFFICIENTLY THAN DENSE.
+
+You can verify the Kaggle script use and the raw results in the logs folder.
+
 ## Inference stage
 After the input is split into queries and keys, the static binary tree is built on top of the key matrix and stored. This happens once per layer.
 
@@ -32,7 +62,7 @@ Causality is maintained by choosing the branches/branch of the tree that only co
 ## Results and Variables
 The following is also present in the repo under logs.
 
-Ideally, I would have run MQAR and Tinystories tests at 1,4,16k Tokens to solidify, but as things are right now, I only have the results for MQAR testing at 1K Tokens. 
+Ideally, I would have run MQAR and Tinystories tests at 1,4,16k Tokens to solidify, but as things are right now, I only have the results for MQAR testing.
 
 The exact log and the reproducible Kaggle script is in the logs folder
 
@@ -44,6 +74,16 @@ The exact log and the reproducible Kaggle script is in the logs folder
 |---|---|---|---|---|---|
 | Dense Baseline(Teacher) | 94.9% ± 1.5% | 512.5(Full) | 1.0 x (100% Read) | 57MB | N/A |
 | ALHR(Tree attention) | 92.1% ± 0.6% | 30.0 | 35.3 x (2.83% Read) | 422MB | 100.0% |
+
+| Model Variant (T=4096) 3 Seeds | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
+|---|---|---|---|---|---|
+| Dense Baseline(Teacher) | 95.4% ± 0.010% | 2048 (Full) | 1.0 x (100% Read) | 112MB | N/A |
+| ALHR(Tree attention) | 93.3% ± 0.03% | 32.0 | 126.2 x (2.83% Read) | 491MB | 100.0% |
+
+| Model Variant (T=16384) 2 Seeds | Top-1 Accuracy | Avg Keys read/Token | KV Compression | Peak VRAM | Cache Compression |
+|---|---|---|---|---|---|
+| Dense Baseline(Teacher) | 89.4% ± 0.010% | 8192 (Full) | 1.0 x (100% Read) | 334MB | N/A |
+| ALHR(Tree attention) | 79.2% ± 0.009% | 30.0 | 126.2 x (2.83% Read) | 767MB | 100.0% |
 
 
 Now as you can see, we achieve near dense accuracy while reading a small amount of keys.
@@ -64,7 +104,14 @@ You can verify the data set and kaggle prompt I used to get this in the logs fol
 
 I haven't had the time nor the resources to test all the combinations, but they certainly improve accuracy.
 
+The variables are
+
+Phase 1- Goal: 0.95. The training stops at 0.95
+Top k tokens - 16, While in Phase 2- We use the top 16 tokens from the self attention matrix to train ALHR
+and finally, the Max keys = 96 and Max Budget class = 32
+
 **Note**: If you check the logs, you will see that our tree attention system takes almost 10x the time that dense takes, this is because its not optimised yet for kernel and is run purely on pytorch.
+
 ## Paper
 I'm currently in the process of writing a paper and uploading it to Zenodo, but its been difficult given my lack of resources and balancing my college life.
 
